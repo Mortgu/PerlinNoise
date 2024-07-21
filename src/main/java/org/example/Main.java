@@ -1,12 +1,15 @@
 package org.example;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
 
 public class Main {
     public static void main(String[] args) {
         int width = 1000, height = 1000;
-        double density = 0.33;
+        double density = 0.133;
         double threshold = 0.5; // Threshold for land vs water
         int octaves = 6;
         double persistence = 0.5;
