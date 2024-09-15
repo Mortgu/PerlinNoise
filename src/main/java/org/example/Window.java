@@ -2,6 +2,8 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 public class Window extends JFrame {
@@ -22,6 +24,15 @@ public class Window extends JFrame {
                 g.drawImage(bufferedImage, 0, 0, null);
             }
         };
+
+        JButton button;
+        panel.add(button = new JButton("dwa"));
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
 
         add(panel);
     }
