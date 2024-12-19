@@ -15,7 +15,8 @@ public class Main {
     private static BufferedImage bufferedImage;
 
     public static void main(String[] args) {
-        double density = 0.6;
+        int width = 1000, height = 1000;
+        double density = 0.5;
         double threshold = 0.5; // Threshold for land vs water
         int octaves = 6;
         double persistence = 0.45;
