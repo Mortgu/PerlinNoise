@@ -11,7 +11,6 @@ public final class PerlinNoise {
         generatePermutation();
         for (int i = 0; i < 256; i++) {
             p[256 + i] = p[i] = permutation[i];
-            System.out.println(permutation[i]);
         }
     }
 
