@@ -13,6 +13,7 @@ public class Noise {
     private final double density, threshold;
     private final int octaves;
     private final double persistence, baseFrequency;
+    private final double zoomFactor = 1;
 
     public Noise(int width, int height, long seed) {
         this.width = width;
@@ -47,7 +48,7 @@ public class Noise {
         for (int row = 0; row < height; row++) {
             for (int column = 0; column < width; column++) {
                 double noise = brownianMolecularMotion(row, column, width, height,
-                        density, baseFrequency, octaves, persistence);
+                        density * zoomFactor, baseFrequency, octaves, persistence);
                 noise = (noise + 1) / 2;
 
                 map[row][column] = noise;
