@@ -1,4 +1,4 @@
-package de.ciel;
+package de.ciel.modules;
 
 public class GrowThread implements Runnable {
 

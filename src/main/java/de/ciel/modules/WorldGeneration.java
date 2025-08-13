@@ -39,6 +39,12 @@ public class WorldGeneration {
         this.map = noise.generate();
     }
 
+    public WorldGeneration generateRivers() {
+        new RiverGenerator(map);
+
+        return this;
+    }
+
     public void generateImage() {
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
@@ -48,10 +54,10 @@ public class WorldGeneration {
 
                 Color pixelColor;
                 if (value > 0.5) {
-                    float brightnessFactor = (float) (value - 0.5) * 2; // Skaliert von 0 bis 1
+                    float brightnessFactor = (float) (value - 0.5) * 2;
                     pixelColor = interpolateColor(new Color(38, 194, 38), new Color(11, 80, 11), brightnessFactor);
                 } else {
-                    float brightnessFactor = (float) value * 2; // Skaliert von 0 bis 1
+                    float brightnessFactor = (float) value * 2;
                     pixelColor = interpolateColor(new Color(25, 25, 183), new Color(17, 125, 204), brightnessFactor);
                 }
 
@@ -59,14 +65,14 @@ public class WorldGeneration {
             }
         }
 
-        save(bufferedImage, "world.png");
+        save(bufferedImage);
     }
 
-    private void save(BufferedImage bufferedImage, String fileName) {
-        File file = new File(fileName);
+    private void save(BufferedImage bufferedImage) {
+        File file = new File("world.png");
         try {
             ImageIO.write(bufferedImage, "png", file);
-            System.out.println("[WorldGeneration] World generated. Image saved as " + fileName);
+            System.out.println("[WorldGeneration] World generated. Image saved as " + "world.png");
         } catch (IOException exception) {
             System.err.println("[WorldGeneration] Failed to save generated world!");
         }
